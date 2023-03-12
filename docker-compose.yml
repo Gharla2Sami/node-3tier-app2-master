@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  web:
+    build: web
+    # image: 951167913375.dkr.ecr.us-east-1.amazonaws.com/node_app-repo
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+  api:
+    build: api
+    # image: 951167913375.dkr.ecr.us-east-1.amazonaws.com/node_app-repo_api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: myuserpassword
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
