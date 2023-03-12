@@ -1,8 +1,5 @@
 FROM node:16
 
-FROM nginx:alpine
-COPY . /usr/share/nginx/html
-
 # Create app directory
 WORKDIR /
 

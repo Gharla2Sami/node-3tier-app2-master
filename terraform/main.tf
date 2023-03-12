@@ -92,5 +92,6 @@ resource "aws_security_group" "mainGroup" {
 } */
 
 output "instance_public_ip" {
-  value = aws_instance.webserver
+  value = aws_instance.webserver.public_ip
+
 }

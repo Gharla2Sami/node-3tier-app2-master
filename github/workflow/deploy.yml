@@ -39,3 +39,5 @@ jobs:
         id: Apply
         run: terraform apply Plan
         working-directory: ./terraform
+
+    # terraform
